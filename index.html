@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Counter App</title>
+
+    <!-- CSS starts here -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #dbeafe, #e9d5ff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: white;
+            width: 90%;
+            max-width: 400px;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        #count {
+            font-size: 70px;
+            font-weight: bold;
+            margin: 25px 0;
+            color: #2563eb;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            opacity: 0.85;
+        }
+
+        .increase {
+            background-color: #16a34a;
+        }
+
+        .decrease {
+            background-color: #dc2626;
+        }
+
+        .reset {
+            background-color: #64748b;
+        }
+
+        .plus-five {
+            background-color: #7c3aed;
+        }
+
+        p {
+            color: #64748b;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+    <!-- CSS ends here -->
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>My Counter App</h1>
+
+        <div id="count">0</div>
+
+        <div class="buttons">
+            <button class="increase" onclick="increaseCount()">
+                Increase
+            </button>
+
+            <button class="decrease" onclick="decreaseCount()">
+                Decrease
+            </button>
+
+            <button class="reset" onclick="resetCount()">
+                Reset
+            </button>
+
+            <button class="plus-five" onclick="increaseByFive()">
+                +5
+            </button>
+        </div>
+
+        <p>Click the buttons to change the counter!</p>
+
+    </div>
+
+    <!-- JavaScript starts here -->
+    <script>
+        let count = 0;
+
+        function updateCount() {
+            document.getElementById("count").textContent = count;
+
+            if (count > 0) {
+                document.getElementById("count").style.color = "green";
+            } else {
+                document.getElementById("count").style.color = "#2563eb";
+            }
+        }
+
+        function increaseCount() {
+            count = count + 1;
+            updateCount();
+        }
+
+        function decreaseCount() {
+            if (count > 0) {
+                count = count - 1;
+                updateCount();
+            }
+        }
+
+        function resetCount() {
+            count = 0;
+            updateCount();
+        }
+
+        function increaseByFive() {
+            count = count + 5;
+            updateCount();
+        }
+    </script>
+    <!-- JavaScript ends here -->
+
+</body>
+</html>
